@@ -1,6 +1,5 @@
 <template>
-  <section>
-      <label for="search"></label>
+  <section class="searchbar">
       <input @input="update" type="text" v-model="query" placeholder="search">
   </section>
   <Suspense>
@@ -37,5 +36,23 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+}
+
+.searchbar {
+    padding: 2rem;
+    text-align: left;
+}
+
+.searchbar > input {
+    background-color: rgb(26, 26, 26);
+    border-color: rgb(12, 12, 12);
+    box-shadow: none;
+    color: silver;
+    display: block;
+    font-size: 2rem;
+    height: 3rem;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 80%;
 }
 </style>

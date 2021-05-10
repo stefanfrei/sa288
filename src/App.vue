@@ -3,13 +3,15 @@
 </template>
 
 <script>
-import Search from './components/Search.vue'
+import Search from './comps/Search.vue'
+
+import { ref } from 'vue'
 
 export default {
   name: 'App',
   components: {
     Search,
-  },
+  }
 }
 </script>
 

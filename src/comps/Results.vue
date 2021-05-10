@@ -7,8 +7,6 @@
 
 
 <script>
-import { ref } from 'vue'
-
 export default {
     name: 'Test',
     props: [
@@ -25,9 +23,6 @@ export default {
             this.getData(query)
         }
     },
-    mounted() {
-        console.log(this.query);
-    },
     methods: {
         async getData(query) {
             if (!query.length) {
@@ -39,7 +34,6 @@ export default {
                 const testsResponse = await fetch(`http://localhost:4220/api/data/o/q/${query}`)
                 this.tests = await testsResponse.json()
             } catch (e) {
-                console.log(e);
                 this.error = e;
             }
         }
