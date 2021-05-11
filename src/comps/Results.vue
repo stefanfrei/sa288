@@ -1,21 +1,21 @@
 <template>
     <div v-if="error">{{ error }}</div>
-    <div v-else v-for="test in tests" :key="test.id">
-        {{ test.name }}
+    <div v-else v-for="result in results" :key="result.id">
+        {{ result.name }}
     </div>
 </template>
 
 
 <script>
 export default {
-    name: 'Test',
+    name: 'Results',
     props: [
         'query'
     ],
     data() {
         return {
             error: '',
-            tests: []
+            results: []
         }
     },
     watch: {
@@ -26,13 +26,13 @@ export default {
     methods: {
         async getData(query) {
             if (!query.length) {
-                this.tests = []
+                this.results = []
                 return
             }
 
             try {
-                const testsResponse = await fetch(`http://localhost:4220/api/data/o/q/${query}`)
-                this.tests = await testsResponse.json()
+                const res = await fetch(`http://localhost:4220/api/data/o/q/${query}`)
+                this.results = await res.json()
             } catch (e) {
                 this.error = e;
             }

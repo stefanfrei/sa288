@@ -3,14 +3,21 @@
 </template>
 
 <script>
-import Search from './comps/Search.vue'
+import Search from '/src/comps/Search.vue'
+import getCompState from '/src/store/compstate'
 
-import { ref } from 'vue'
 
 export default {
   name: 'App',
   components: {
     Search,
+  },
+  setup() {
+    const state = getCompState()
+
+    return {
+      state
+    }
   }
 }
 </script>

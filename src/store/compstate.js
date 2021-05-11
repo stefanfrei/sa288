@@ -15,7 +15,7 @@ const state = reactive({
     comps,
 });
 
-export default function getComps() {
+export default function getCompState() {
     
 
     return {

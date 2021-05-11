@@ -1,6 +1,7 @@
 <template>
-  <section class="searchbar">
-      <input @input="update" type="text" v-model="query" placeholder="search">
+<pre>{{ state.comps.value.search.display }}</pre>
+  <section v-if="state.comps.value.search.display" class="searchbar">
+      <input id="search" @input="updateQuery" type="text" v-model="query" placeholder="search">
   </section>
   <Suspense>
     <template #default>
@@ -13,7 +14,8 @@
 </template>
 
 <script>
-import Results from './Results.vue'
+import getCompState from '/src/store/compstate'
+import Results from '/src/comps/Results.vue'
 
 export default {
   name: 'Search',
@@ -25,8 +27,12 @@ export default {
           query: ''
       }
   },
+  setup() {
+    const state = getCompState()
+    return { state }
+  },
   methods: {
-    update(evt) {
+    updateQuery(evt) {
       this.query = evt.target.value;
     },
   }
