@@ -6,19 +6,19 @@
 import { reactive, toRefs } from "vue";
 
 const comps = {
-    search: {
-        display: false
-    }
+  search: {
+    display: false
+  }
 }
 
 const state = reactive({
-    comps,
+  comps,
 });
 
 export default function getCompState() {
-    
 
-    return {
-        ...toRefs(state)
-    }
+
+  return {
+    ...toRefs(state)
+  }
 }

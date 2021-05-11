@@ -1,44 +1,42 @@
 <template>
-    <div v-if="error">{{ error }}</div>
-    <ul v-else>
+  <div v-if="error">{{ error }}</div>
+  <ul v-else>
     <li v-for="result in results" :key="result.id">
-        {{ result.name }}
+      {{ result.name }}
     </li>
-    </ul>
+  </ul>
 </template>
 
 
 <script>
 export default {
-    name: 'Results',
-    props: [
-        'query'
-    ],
-    data() {
-        return {
-            error: '',
-            results: []
-        }
+  name: "Results",
+  props: ["query"],
+  data() {
+    return {
+      error: "",
+      results: [],
+    };
+  },
+  watch: {
+    async query(query) {
+      this.getData(query);
     },
-    watch: {
-        async query(query) {
-            this.getData(query)
-        }
-    },
-    methods: {
-        async getData(query) {
-            if (!query.length) {
-                this.results = []
-                return
-            }
+  },
+  methods: {
+    async getData(query) {
+      if (!query.length) {
+        this.results = [];
+        return;
+      }
 
-            try {
-                const res = await fetch(`http://localhost:4220/api/data/o/q/${query}`)
-                this.results = await res.json()
-            } catch (e) {
-                this.error = e;
-            }
-        }
-    }
-}
+      try {
+        const res = await fetch(`http://localhost:4220/api/data/o/q/${query}`);
+        this.results = await res.json();
+      } catch (e) {
+        this.error = e;
+      }
+    },
+  },
+};
 </script>

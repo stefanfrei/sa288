@@ -3,28 +3,27 @@
 </template>
 
 <script>
-import Search from '/src/comps/Search.vue'
-import getCompState from '/src/store/compstate'
-
+import Search from "/src/comps/Search.vue";
+import getCompState from "/src/store/compstate";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Search,
   },
   setup() {
-    const state = getCompState()
+    const state = getCompState();
 
     return {
-      state
-    }
-  }
-}
+      state,
+    };
+  },
+};
 </script>
 
 <style>
 body {
-  background-color:#2c3e50;
+  background-color: #2c3e50;
   margin: 0;
   padding: 0;
 }
