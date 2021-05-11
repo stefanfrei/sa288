@@ -1,8 +1,10 @@
 <template>
     <div v-if="error">{{ error }}</div>
-    <div v-else v-for="result in results" :key="result.id">
+    <ul v-else>
+    <li v-for="result in results" :key="result.id">
         {{ result.name }}
-    </div>
+    </li>
+    </ul>
 </template>
 
 
